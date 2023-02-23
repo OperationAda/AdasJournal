@@ -1,0 +1,28 @@
+{
+  "name": "adasjournal-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "node seed.js",
+    "start": "node app.js",
+    "start-dev": "nodemon server.js",
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "OperationAda",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "16.0.1",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.12.0",
+    "morgan": "1.10.0",
+    "path": "^0.12.7",
+    "sequelize": "6.20.1",
+    "sqlite3": "5.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
