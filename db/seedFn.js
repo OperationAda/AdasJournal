@@ -1,10 +1,13 @@
 const {sequelize} = require('./db');
-const {AdaJournal} = require('.');
-const notes = require('./seedData');
+const seed = require('./seedFn');
 
-const seed = async () => {
-  await sequelize.sync({ force: true }); // recreate db
-  await AdaJournal.bulkCreate(notes);
-};
-
-module.exports = seed;
+seed()
+  .then(() => {
+    console.log('Seeding success. Access Granted!');
+  })
+  .catch(err => {
+    console.error(err);
+  })
+  .finally(() => {
+    sequelize.close();
+  });
