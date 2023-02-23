@@ -1,2 +1,8 @@
-# AdasJournal
-1) npm i  -- this installs node modules
+# express-get-adas-journal
+
+
+```bash
+npm install
+npm run seed # runs the seed file
+npm start
+```
