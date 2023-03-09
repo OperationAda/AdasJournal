@@ -1,0 +1,22 @@
+
+const express = require("express");
+const { User } = require('../models/User');
+const router = express.Router();
+
+router.post('/signup', async(req, res) => {
+    const salt = await bcrypt.genSalt(7);
+    var usr = {
+        firstName: req.body.firstName,
+        surname: req.body.surname,
+        email: req.body.email,
+        password: await bcrypt.hash(req.body.password, salt)
+    };
+    try {
+        newUser = await User.create(usr)
+        res.status(201).json(newUser)
+    } catch (err) {
+        next(err);
+    }
+})
+
+module.exports = router;
