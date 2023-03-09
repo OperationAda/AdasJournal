@@ -48,7 +48,7 @@ router.put("/:id", async (req, res) => {
   const getAdasJournal = await AdasJournal.findByPk(req.params.id);
   await getAdasJournal.update({
     title: req.body.title,
-    locati: req.body.notes
+    notes: req.body.notes
   });
   res.json(getAdasJournal);
 });
