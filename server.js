@@ -1,5 +1,4 @@
 const express = require("express");
-const seed = require("./seed");
 const { sequelize } = require("./db");
 const app = express();
 
