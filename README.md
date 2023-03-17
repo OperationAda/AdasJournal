@@ -1,6 +1,8 @@
 # express-get-adas-journal
 
+adasjournal.onrender.com
 
+steps to install application
 ```bash
 npm install
 npm run seed # runs the seed file
