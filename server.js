@@ -1,7 +1,7 @@
 const express = require("express");
 const { sequelize } = require("./db");
 const app = express();
-
+require('dotenv').config('.env')
 const port = 3000;
 const { auth } = require('express-openid-connect');
 
@@ -13,10 +13,10 @@ const {
 }  = process.env;
 
 const config = {
-  authRequired: true,
+  authRequired: false,
   auth0Logout: true,
   secret:  AUTH0_SECRET,
-  baseURL: AUTH0_BASE_URL,
+  baseURL: 'http://localhost:3000',
   clientID: AUTH0_CLIENT_ID,
   issuerBaseURL: AUTH0_ISSUER_BASE_URL
 };
