@@ -5,13 +5,20 @@ const app = express();
 const port = 3000;
 const { auth } = require('express-openid-connect');
 
+const {
+  AUTH0_SECRET,
+  AUTH0_BASE_URL,
+  AUTH0_CLIENT_ID,
+  AUTH0_ISSUER_BASE_URL
+}  = process.env;
+
 const config = {
-  authRequired: false,
+  authRequired: true,
   auth0Logout: true,
-  secret:  process.env.SECRET ,
-  baseURL: process.env.BASEURL,
-  clientID: process.env.CLIENTID,
-  issuerBaseURL: process.env.ISSUERBASEURL
+  secret:  AUTH0_SECRET,
+  baseURL: AUTH0_BASE_URL,
+  clientID: AUTH0_CLIENT_ID,
+  issuerBaseURL: AUTH0_ISSUER_BASE_URL
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
