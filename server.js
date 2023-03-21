@@ -4,6 +4,7 @@ const app = express();
 require('dotenv').config('.env')
 const port = 3000;
 const { auth } = require('express-openid-connect');
+const journalRouter  = require("./routes/adas_journal")
 
 const {
   AUTH0_SECRET,
@@ -24,9 +25,7 @@ const config = {
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
+app.use("/notes",journalRouter)
 //TODO: Create your GET Request Route Below:
 const adas_journal_conn = require("./routes/adas_journal");
 app.use("/adas_journal", adas_journal_conn);

@@ -1,4 +1,4 @@
-//http://localhost:3000/adas_journal/
+//https://localhost:3000/adas_journal/
 
 const express = require("express");
 const router = express.Router();
@@ -15,11 +15,16 @@ router.use(express.urlencoded({ extended: true }));
 //endpoints
 //find all
 router.get("/", async (req, res, next) => {
+  const isAuth  = req.oidc.isAuthenticated();
+  if (isAuth) {
   try{
   const getAdasJournal = await AdasJournal.findAll();
   res.json(getAdasJournal);
   }catch(error){
    next(error);
+  }
+  } else {
+    res.send("authentication failed")
   }
 });
 //
